@@ -19,6 +19,7 @@ import documentRoute from "./routes/document.route";
 import cookieParser from "cookie-parser";
 import path from "path";
 
+
 config({ path: path.resolve(__dirname, "../.env") });
 const apiLimiter = rateLimit({
   windowMs: 60 * 1000,
@@ -28,6 +29,15 @@ const app = express();
 app.use("/api/", apiLimiter);
 app.use(morgan("dev"));
 app.use(helmet());
+const PORT = process.env.PORT || 3000; // use Render's port
+
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
 const url = process.env.VITE_BACKEND_URL?.slice(0, -4);
 app.use(
   helmet.contentSecurityPolicy({
