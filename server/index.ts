@@ -29,14 +29,16 @@ const app = express();
 app.use("/api/", apiLimiter);
 app.use(morgan("dev"));
 app.use(helmet());
-const PORT = process.env.PORT || 3000; // use Render's port
-
+// Middleware, routes, etc.
 app.get("/", (req, res) => {
-  res.send("Server is running!");
+  res.send("Hello from Render!");
 });
 
+// ✅ Use the Render-assigned port
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
 const url = process.env.VITE_BACKEND_URL?.slice(0, -4);
 app.use(
