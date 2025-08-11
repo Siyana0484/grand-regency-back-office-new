@@ -33,12 +33,7 @@ app.use(helmet());
 app.get("/", (req, res) => {
   res.send("Hello from Render!");
 });
-// ✅ Use the Render-assigned port
-const PORT = process.env.PORT || 10000;
 
-app.listen(PORT, () => {
-  console.log(Server is running on port ${PORT});
-});
 
 const url = process.env.VITE_BACKEND_URL?.slice(0, -4);
 app.use(
@@ -98,8 +93,8 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-const port = process.env.PORT || 5000;
-app.listen(port, (err?: Error) => {
+const port = process.env.PORT || 10000;
+app.listen(port, '0.0.0.0', (err?: Error) => {
   if (err) {
     console.error("Failed to start server:", err);
   } else {
