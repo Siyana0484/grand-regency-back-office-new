@@ -1,16 +1,18 @@
 {
-    "compilerOptions": {
-      "target": "es2016",
-      "module": "commonjs",
-       "rootDir": "./server",
-      "outDir": "./build",
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "strict": true,
-      "skipLibCheck": true
-    },
-    "exclude": [
-      "front-end/**/*",
-      "**/node_modules/*"
-    ]
-  }
+  "compilerOptions": {
+    "target": "ES2019",                  // Slightly newer target for modern Node
+    "module": "commonjs",
+    "rootDir": "./server",               // Where your backend TypeScript files are
+    "outDir": "./build",                  // Compiled JS output
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true                     // Helpful for debugging production errors
+  },
+  "exclude": [
+    "front-end",                          // Exclude frontend folder
+    "node_modules",                       // Don't compile dependencies
+    "**/*.test.ts"                         // Skip test files if any
+  ]
+}
