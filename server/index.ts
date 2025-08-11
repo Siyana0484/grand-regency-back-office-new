@@ -93,7 +93,8 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-const port = process.env.PORT || 10000;
+const port: number = Number(process.env.PORT) || 10000;
+
 app.listen(port, '0.0.0.0', (err?: Error) => {
   if (err) {
     console.error("Failed to start server:", err);
