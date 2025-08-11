@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Guest And Vendor Management Software",
   "main": "index.js",
- "scripts": {
-  "dev": "nodemon server/index.ts",
-  "build": "tsc",
-  "start": "node dist/index.js"
-}
+  "scripts": {
+    "dev": "nodemon server/index.ts",
+    "build": "npm i && cd front-end && npm i && npm run build && cd .. && npx tsc",
+    "start": "node build/index.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
